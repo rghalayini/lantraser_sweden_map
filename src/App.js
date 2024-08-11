@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { locations } from './data/locations';
+import Map from './components/Map';
+import LocationList from './components/LocationList';
+import LocationFilter from './components/LocationFilter';
 
-function App() {
+const App = () => {
+  const [filteredLocations, setFilteredLocations] = React.useState(locations);
+
+  const handleFilterChange = ({ city, type }) => {
+    let filtered = locations;
+    if (city) {
+      filtered = filtered.filter((l) => l.city === city);
+    }
+    if (type) {
+      filtered = filtered.filter((l) => l.type === type);
+    }
+    setFilteredLocations(filtered);
+  };
+
+  const cities = [...new Set(locations.map((l) => l.city))];
+  const types = [...new Set(locations.map((l) => l.type))];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <LocationFilter cities={cities} types={types} onFilterChange={handleFilterChange} />
+      <Map locations={filteredLocations} />
+      <LocationList filteredLocations={filteredLocations} />
     </div>
   );
-}
+};
 
 export default App;
