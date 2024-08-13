@@ -21,8 +21,8 @@
         "react/require-default-props": "error",
         "react/no-array-index-key": "warn",
         "react/react-in-jsx-scope": "error",
-        "react/no-danger-with-children": "error"
-      // Add customize rules here as per your project's needs
+        "react/no-danger-with-children": "error",
+        "no-unused-vars": "warn"
     }
   }
   

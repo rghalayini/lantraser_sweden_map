@@ -7,7 +7,7 @@ const LocationList = ({ filteredLocations }) => {
     <List>
       {filteredLocations.map((location) => (
         <ListItem key={location.id}>
-          <ListItemText primary={location.name} secondary={location.address} />
+          <ListItemText primary={location.city} secondary={[location.animal + ': ' + location.race]} />
         </ListItem>
       ))}
     </List>

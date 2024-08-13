@@ -7,23 +7,28 @@ import LocationFilter from './components/LocationFilter';
 const App = () => {
   const [filteredLocations, setFilteredLocations] = React.useState(locations);
 
-  const handleFilterChange = ({ city, type }) => {
+  const handleFilterChange = ({ city, animal, race }) => {
     let filtered = locations;
     if (city) {
       filtered = filtered.filter((l) => l.city === city);
     }
-    if (type) {
-      filtered = filtered.filter((l) => l.type === type);
+    if (animal) {
+      filtered = filtered.filter((l) => l.animal === animal);
+    }
+    if (race) {
+      filtered = filtered.filter((l) => l.race === race);
     }
     setFilteredLocations(filtered);
   };
 
   const cities = [...new Set(locations.map((l) => l.city))];
-  const types = [...new Set(locations.map((l) => l.type))];
+  const animals = [...new Set(locations.map((l) => l.animal))];
+  const races = [...new Set(locations.map((l) => l.race))];
+
 
   return (
     <div>
-      <LocationFilter cities={cities} types={types} onFilterChange={handleFilterChange} />
+      <LocationFilter cities={cities} animals={animals} races={races} onFilterChange={handleFilterChange} />
       <Map locations={filteredLocations} />
       <LocationList filteredLocations={filteredLocations} />
     </div>

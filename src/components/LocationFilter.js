@@ -2,12 +2,13 @@ import React from 'react';
 import { InputLabel, Select, MenuItem, FormControl } from '@mui/material';
 import PropTypes from 'prop-types';
 
-const LocationFilter = ({ cities, types, onFilterChange }) => {
+const LocationFilter = ({ cities, animals, races, onFilterChange }) => {
   const [city, setCity] = React.useState('');
-  const [type, setType] = React.useState('');
+  const [animal, setAnimal] = React.useState('');
+  const [race, setRace] = React.useState('');
 
   const handleFilterChange = () => {
-    onFilterChange({ city, type });
+    onFilterChange({ city, animal, race });
   };
 
   return (
@@ -24,10 +25,21 @@ const LocationFilter = ({ cities, types, onFilterChange }) => {
         </Select>
       </FormControl>
       <FormControl>
-        <InputLabel>Type</InputLabel>
-        <Select value={type} onChange={(e) => setType(e.target.value)} onClose={handleFilterChange}>
+        <InputLabel>Animal</InputLabel>
+        <Select value={animal} onChange={(e) => setAnimal(e.target.value)} onClose={handleFilterChange}>
           <MenuItem value="">All</MenuItem>
-          {types.map((t) => (
+          {animals.map((t) => (
+            <MenuItem key={t} value={t}>
+              {t}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>      
+      <FormControl>
+        <InputLabel>Race</InputLabel>
+        <Select value={race} onChange={(e) => setRace(e.target.value)} onClose={handleFilterChange}>
+          <MenuItem value="">All</MenuItem>
+          {races.map((t) => (
             <MenuItem key={t} value={t}>
               {t}
             </MenuItem>
@@ -41,7 +53,8 @@ const LocationFilter = ({ cities, types, onFilterChange }) => {
 
 LocationFilter.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
-  types: PropTypes.arrayOf(PropTypes.string).isRequired,
+  animals: PropTypes.arrayOf(PropTypes.string).isRequired,
+  races: PropTypes.arrayOf(PropTypes.string).isRequired,
   onFilterChange: PropTypes.func.isRequired,
 };
 
