@@ -1,10 +1,19 @@
-# Getting Started with Create React App
+# What is this about?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a map that shows the location of the Galloanserae or fowls gene bank in Sweden. A gene bank is a type of biorepository that is designed around the preservation of genetic information, which in this case is several old races of chicken, duck, and geese. Gene banks are often used for storing the genetic material of species that are endangered or close to extinction. Many private individuals or organisations are part of the gene bank and together contribute to the preservation of the species. This map shows all the members of the Svenska Lanthönsklubben.
 
-## Available Scripts
 
-In the project directory, you can run:
+## GDPR
+
+Only the city, the animal type, and the race are shown on this map. No information about individual member is shown to respect GDPR regulations.
+
+## Backend
+
+node.js is used for the backend
+
+## Frontend
+
+React is used for the frontend together with MUI for the user interface.
 
 ### `npm start`
 
