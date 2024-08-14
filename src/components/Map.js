@@ -7,7 +7,6 @@ import { Box } from '@mui/material';
 const Map = ({ locations }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  console.log("locations", locations);
   const markers = useRef([]); // Store markers to manage them
   const [lng, setLng] = useState(12.8545);
   const [lat, setLat] = useState(62.1362);
@@ -24,13 +23,7 @@ const Map = ({ locations }) => {
       center: [lng, lat],
       zoom: zoom
     });
-    // map.current.on('load', () => {
-    //   locations.forEach((location) => {
-    //     new mapboxgl.Marker()
-    //       .setLngLat([location.longitude, location.latitude])
-    //       .addTo(map.current);
-    //   });
-    // });
+
     map.current.on('move', () => {
       setLng(map.current.getCenter().lng.toFixed(4));
       setLat(map.current.getCenter().lat.toFixed(4));
