@@ -15,13 +15,13 @@ const LocationFilter = ({ cities, animals, races, onFilterChange }) => {
 
   return (
     <Box>
-      <Typography variant="h6">Filtrera efter stad, djur och ras</Typography>
+      <Typography variant="h6">Filtrera efter ort, djur och ras</Typography>
       <Grid container spacing={2} mb={2}>
         <Grid item xs={12} sm={4}>
           <FormControl variant="standard" fullWidth >
-            <InputLabel>City</InputLabel>
+            <InputLabel>Ort</InputLabel>
             <Select value={city} onChange={(e) => setCity(e.target.value)} >
-              <MenuItem value="">All</MenuItem>
+              <MenuItem value="">Alla</MenuItem>
               {cities.map((c) => (
                 <MenuItem key={c} value={c}>
                   {c}
@@ -32,9 +32,9 @@ const LocationFilter = ({ cities, animals, races, onFilterChange }) => {
         </Grid>
         <Grid item xs={12} sm={4}>
           <FormControl variant="standard" fullWidth>
-            <InputLabel>Animal</InputLabel>
+            <InputLabel>Djur</InputLabel>
             <Select value={animal} onChange={(e) => setAnimal(e.target.value)}>
-              <MenuItem value="">All</MenuItem>
+              <MenuItem value="">Alla</MenuItem>
               {animals.map((t) => (
                 <MenuItem key={t} value={t}>
                   {t}
@@ -45,9 +45,9 @@ const LocationFilter = ({ cities, animals, races, onFilterChange }) => {
         </Grid>
         <Grid item xs={12} sm={4}>
           <FormControl variant="standard" fullWidth>
-            <InputLabel>Race</InputLabel>
+            <InputLabel>Ras</InputLabel>
             <Select value={race} onChange={(e) => setRace(e.target.value)}>
-              <MenuItem value="">All</MenuItem>
+              <MenuItem value="">Alla</MenuItem>
               {races.map((t) => (
                 <MenuItem key={t} value={t}>
                   {t}
