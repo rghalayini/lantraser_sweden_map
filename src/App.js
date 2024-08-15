@@ -3,7 +3,7 @@ import { locations } from './data/locations';
 import Map from './components/Map';
 import LocationList from './components/LocationList';
 import LocationFilter from './components/LocationFilter';
-
+import { Typography, Grid, Container } from '@mui/material';
 const App = () => {
   const [filteredLocations, setFilteredLocations] = React.useState(locations);
 
@@ -27,11 +27,19 @@ const App = () => {
 
 
   return (
-    <div>
-      <LocationFilter cities={cities} animals={animals} races={races} onFilterChange={handleFilterChange} />
-      <Map locations={filteredLocations} />
-      <LocationList filteredLocations={filteredLocations} />
-    </div>
+  <Container maxWidth="xl">
+    <Typography variant="h3">Svenska Lanthönsklubben </Typography>
+      <Typography variant="h5">Genbankskarta </Typography>
+      <Grid container>
+        <Grid item xs={12} md={4}>
+          <LocationList filteredLocations={filteredLocations} />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <LocationFilter cities={cities} animals={animals} races={races} onFilterChange={handleFilterChange} />
+          <Map locations={filteredLocations} />
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
