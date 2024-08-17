@@ -48,7 +48,7 @@ const Map = ({ locations }) => {
     });
   }, [locations]); // Run this effect when locations change
   
-  return  <Box ref={mapContainer} sx={{height: "400px"}}/>;
+  return  <Box ref={mapContainer} sx={{height: "100%"}}/>;
 };
 
 Map.propTypes = {

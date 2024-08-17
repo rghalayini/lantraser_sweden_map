@@ -15,7 +15,7 @@ const LocationFilter = ({ cities, animals, races, onFilterChange }) => {
 
   return (
     <Box>
-      <Typography variant="body1">Filtrera efter ort, djur och ras</Typography>
+      <Typography sx={{ fontWeight: "bold",}}>Filtrera efter ort, djur och ras</Typography>
       <Grid container spacing={2} mb={2}>
         <Grid item xs={12} sm={4}>
           <FormControl variant="standard" fullWidth >

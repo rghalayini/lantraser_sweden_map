@@ -7,10 +7,17 @@ import { Typography, Grid, Container, Box } from '@mui/material';
 
 const styles ={
   imageStyle: {
-    width:"100%",
+    width:"60%",
   },
   marginBottom:{
     marginBottom: "20px",
+  },
+  bold:{
+    fontWeight: "bold",
+  },
+  listBox: {
+    overflowY: "auto",
+    maxHeight: "100%",
   },
 };
 const App = () => {
@@ -38,18 +45,21 @@ const App = () => {
   return (
   <Container maxWidth="lg">
     <Box component="img" src="https://www.kackel.se/wp-content/themes/kackel/images/svenska_lanthonsklubben_topp.jpg" sx={styles.imageStyle}/>
-    <Grid container spacing={2} mt={2}>
-      <Grid item xx={12}>
-        <Typography variant="h5">Genbankskarta </Typography>
-      </Grid>
+    <Grid container spacing={2} mt={2} >
       <Grid item xs={12}>
-        <Grid container>
-          <Grid item xs={12} md={8}>
-            <LocationFilter cities={cities} animals={animals} races={races} onFilterChange={handleFilterChange} />
+        <Typography variant="h5" sx={styles.bold}>Genbankskarta </Typography>
+      </Grid>
+      <Grid item xs={12} sx={{height: "50vh", maxHeight: "700px"}}>
+        <Grid container spacing={2} sx={{height: "100%"}}>
+          <Grid item xs={12} md={8} sx={{height: "100%"}}>
             <Map locations={filteredLocations} />
           </Grid>
-          <Grid item xs={12} md={4}>
-            <LocationList filteredLocations={filteredLocations} />
+          <Grid item xs={12} md={4}sx={{height: "100%"}}>
+            <LocationFilter cities={cities} animals={animals} races={races} onFilterChange={handleFilterChange} />
+            <Typography sx={styles.bold}>Filtrerad lista</Typography>
+            <Box sx={styles.listBox}>
+              <LocationList filteredLocations={filteredLocations} />
+            </Box>
           </Grid>
         </Grid>
       </Grid>
