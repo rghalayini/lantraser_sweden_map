@@ -49,15 +49,15 @@ const App = () => {
       <Grid item xs={12}>
         <Typography variant="h5" sx={styles.bold}>Genbankskarta </Typography>
       </Grid>
-      <Grid item xs={12} sx={{height: "50vh", maxHeight: "700px"}}>
+      <Grid item xs={12} sx={{height: "calc(100vh - 260px)", maxHeight: "700px"}}>
         <Grid container spacing={2} sx={{height: "100%"}}>
           <Grid item xs={12} md={8} sx={{height: "100%"}}>
             <Map locations={filteredLocations} />
           </Grid>
-          <Grid item xs={12} md={4}sx={{height: "100%"}}>
+          <Grid item xs={12} md={4} sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
             <LocationFilter cities={cities} animals={animals} races={races} onFilterChange={handleFilterChange} />
             <Typography sx={styles.bold}>Filtrerad lista</Typography>
-            <Box sx={styles.listBox}>
+            <Box sx={{ ...styles.listBox, flex: 1 }}>
               <LocationList filteredLocations={filteredLocations} />
             </Box>
           </Grid>
